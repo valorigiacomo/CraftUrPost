@@ -15,7 +15,7 @@ export interface GenerationOptions {
 export async function analyzeReferenceUrl(url: string, language: string = 'English'): Promise<string> {
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3-flash",
     contents: `Analyze the visual style of this social media post: ${url}. 
     Provide a detailed technical description for an image generation model. 
     Focus on:
