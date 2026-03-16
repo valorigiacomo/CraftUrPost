@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 export interface GenerationOptions {
   prompt: string;
@@ -13,7 +13,7 @@ export interface GenerationOptions {
 }
 
 export async function analyzeReferenceUrl(url: string, language: string = 'English'): Promise<string> {
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Analyze the visual style of this social media post: ${url}. 
